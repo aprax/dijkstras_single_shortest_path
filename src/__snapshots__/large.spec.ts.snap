@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should find the shortest paths to all other nodes from A 1`] = `
+Map {
+  "A" => Array [
+    "A",
+    0,
+  ],
+  "B" => Array [
+    "A",
+    3,
+  ],
+  "E" => Array [
+    "A",
+    7,
+  ],
+  "C" => Array [
+    "B",
+    7,
+  ],
+  "G" => Array [
+    "E",
+    16,
+  ],
+  "F" => Array [
+    "E",
+    17,
+  ],
+  "S" => Array [
+    "G",
+    14,
+  ],
+}
+`;
+
+exports[`should find the shortest paths to all other nodes from B 1`] = `
+Map {
+  "B" => Array [
+    "B",
+    0,
+  ],
+  "C" => Array [
+    "B",
+    4,
+  ],
+}
+`;
+
+exports[`should find the shortest paths to all other nodes from D 1`] = `
+Map {
+  "D" => Array [
+    "D",
+    0,
+  ],
+  "A" => Array [
+    "D",
+    2,
+  ],
+  "E" => Array [
+    "D",
+    13,
+  ],
+  "C" => Array [
+    "E",
+    13,
+  ],
+  "G" => Array [
+    "E",
+    22,
+  ],
+  "F" => Array [
+    "E",
+    23,
+  ],
+  "S" => Array [
+    "G",
+    14,
+  ],
+}
+`;
+
+exports[`should find the shortest paths to all other nodes from E 1`] = `
+Map {
+  "E" => Array [
+    "E",
+    0,
+  ],
+  "C" => Array [
+    "E",
+    0,
+  ],
+  "G" => Array [
+    "E",
+    9,
+  ],
+  "F" => Array [
+    "E",
+    10,
+  ],
+  "S" => Array [
+    "G",
+    14,
+  ],
+}
+`;
+
+exports[`should find the shortest paths to all other nodes from F 1`] = `
+Map {
+  "F" => Array [
+    "F",
+    0,
+  ],
+  "C" => Array [
+    "F",
+    8,
+  ],
+}
+`;
+
+exports[`should find the shortest paths to all other nodes from G 1`] = `
+Map {
+  "G" => Array [
+    "G",
+    0,
+  ],
+  "F" => Array [
+    "G",
+    5,
+  ],
+  "S" => Array [
+    "G",
+    5,
+  ],
+}
+`;
+
+exports[`should find the shortest paths to all other nodes from S 1`] = `
+Map {
+  "S" => Array [
+    "S",
+    0,
+  ],
+  "A" => Array [
+    "D",
+    4,
+  ],
+  "D" => Array [
+    "S",
+    2,
+  ],
+  "G" => Array [
+    "S",
+    3,
+  ],
+  "B" => Array [
+    "A",
+    11,
+  ],
+  "E" => Array [
+    "A",
+    15,
+  ],
+  "F" => Array [
+    "G",
+    8,
+  ],
+  "C" => Array [
+    "B",
+    7,
+  ],
+}
+`;

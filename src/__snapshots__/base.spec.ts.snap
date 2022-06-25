@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return base result if root node  does not exist 1`] = `
+Map {
+  "C" => Array [
+    "C",
+    0,
+  ],
+}
+`;
+
+exports[`should return base result if root node  has no edges 1`] = `
+Map {
+  "B" => Array [
+    "B",
+    0,
+  ],
+}
+`;
