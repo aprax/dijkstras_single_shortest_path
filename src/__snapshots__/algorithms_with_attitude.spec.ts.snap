@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should find the shortest paths to all other nodes from start 1`] = `
+Map {
+  "Start" => Array [
+    "Start",
+    0,
+  ],
+  "A" => Array [
+    "Start",
+    8,
+  ],
+  "D" => Array [
+    "Start",
+    2,
+  ],
+  "G" => Array [
+    "Start",
+    3,
+  ],
+  "F" => Array [
+    "D",
+    5,
+  ],
+  "B" => Array [
+    "A",
+    11,
+  ],
+  "E" => Array [
+    "B",
+    11,
+  ],
+  "C" => Array [
+    "E",
+    11,
+  ],
+}
+`;
