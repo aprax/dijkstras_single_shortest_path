@@ -25,13 +25,8 @@
 				"--inspect-brk",
 				"${workspaceRoot}/node_modules/.bin/jest",
 				"--runInBand",
-				"-u",
-				"src/base.spec.ts",
-				"src/multiple_edges_to_same_node.spec.ts",
-				"src/small.spec.ts",
-				"src/large.spec.ts",
-				"src/medium.spec.ts",
-				"src/flat.spec.ts"
+				"src/notPossible.spec.ts",
+				"src/index.spec.ts",
 			],
 			"console": "integratedTerminal",
 			"internalConsoleOptions": "neverOpen"

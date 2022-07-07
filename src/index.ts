@@ -1,49 +1,57 @@
 function shortestDistance(grid: number[][]): number {
 	let min = Number.MAX_SAFE_INTEGER;
 	let x = 0;
-	const distance = new Map();
-	while (x++ < grid.length) {
+	const totalBuildings = grid.reduce((previous, current) => {
+		return previous + current.filter(value => value === 1).length
+
+	}, 0);
+	do {
 		let y = 0;
-		const visited = new Set();
-		Array.defineProperty(Array.prototype, 'enqueue', function (this: any[], value: number) {
-			this.push(value);
-		}
-		while (y++ < grid?.[x]?.length!) {
-			if (!visited.has([x, y])) {
-				const building = new Map();
-				const initial: [number, number][] = [[x, y]];
-				const queue = Object.assign<[number, number][], { enqueue: Function }>(initial, {
-					enqueue: function (cell: [number, number], d: number) { //TODO(aprax) extend the array prototype for fast_queue with a enqueue and deqeueue instead of creating an entirely new class
-						if (!visited.has(cell)) {
+		do {
+			if (grid[x]?.[y] === 0) {
+				const building: { [index: string]: number } = {}
+				const visited: { [index: string]: boolean } = { [[x, y].toString()]: true }
+				const queue = Object.assign<[number, number][], { enqueue: Function }>([[x, y]], {
+					enqueue: function (this: [number, number][] & { enqueue: Function }, cell: [number, number], distance: number) { //TODO(aprax) extend the array prototype for fast_queue with a enqueue and deqeueue instead of creating an entirely new class
+						if (!visited[cell.toString()]) {
 							const [x, y] = cell;
 							if (grid[x]?.[y] === 0) {
-								distance.set(cell, d);
+								visited[cell.toString()] = true;
+								this.push(cell);
+							} else if (grid[x]?.[y] === 1) {
+								if (!building[cell.toString()]) {
+									building[cell.toString()] = distance;
+								}
 							}
 						}
-
-
-
 					}
 				});
-
-				console.log(test[0]);
-
-				test.enqueue([[5]], 5);
-
-				//const test = new Queue();
-				/*
-				const queue: Queue = {...[[x, y]], ...{
-					enqueue: function (arg, distance) {
-						return 5;
-
+				let d = 1;
+				while (queue.length) {
+					const next = queue.shift();
+					if (!next) {
+						throw new Error('que item is undefined');
 					}
-				}} as Queue;
-				*/
+					const [x, y] = next;
+					queue.enqueue([x, y - 1], d);
+					queue.enqueue([x + 1, y], d);
+					queue.enqueue([x, y + 1], d);
+					queue.enqueue([x - 1, y], d);
+					d++;
+				}
+				if (Object.keys(building).length === totalBuildings) {
+					const cmin = Object.values(building).reduce((previous, current) => previous + current, 0);
+					if (cmin < min) {
+						min = cmin;
+					}
+				}
 
 			}
-		}
-	}
+		} while (y++ < grid?.[x]?.length!);
+	} while (x++ < grid.length)
 
-};
+	return min === Number.MAX_SAFE_INTEGER ? -1 : min;
+}
+
 
 export default shortestDistance
